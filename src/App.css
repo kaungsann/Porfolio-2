@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Basic&family=M+PLUS+1:wght@100..900&display=swap");
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #050d24;
+  color: whitesmoke;
+  font-family: "M PLUS 1", sans-serif;
+}
+
+.home {
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.home::-webkit-scrollbar {
+  width: 0px;
+}
+
+.home::-webkit-scrollbar-thumb {
+  background-color: #f9fafb;
+}
+.titleHeader {
+  position: fixed;
+  top: 0;
+  left: 38%;
+  margin-top: 88px;
+  transform: translateX(-100%);
+}
+.hovered-div:hover h3 {
+  color: #4fd1c5;
+}
+
+/* .line-animate {
+  animation: expandLine 0.5s forwards;
+}
+
+.text-animate {
+  animation: changeBackground 0.5s forwards;
+} */
+
+.line-animate {
+  width: 28px; /* Adjust as necessary */
+  transition: width 0.3s ease-in-out;
+}
+
+.text-animate {
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
