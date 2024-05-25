@@ -1,20 +1,36 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useRef, useState } from "react";
-// import BlackHole from "../components/BlackHoleComponent/BlackHole";
-// import { useState } from "react";
 
 function Home() {
+  const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isExperienceVisible, setIsExperienceVisible] = useState(false);
+  const [isProjectsVisible, setIsProjectsVisible] = useState(false);
+
+  const aboutRef = useRef(null);
   const experienceRef = useRef(null);
+  const projectsRef = useRef(null);
 
   const handleScroll = () => {
+    const aboutSection = aboutRef.current;
     const experienceSection = experienceRef.current;
+    const projectsSection = projectsRef.current;
+
+    if (aboutSection) {
+      const rect = aboutSection.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+      setIsAboutVisible(isVisible);
+    }
+
     if (experienceSection) {
       const rect = experienceSection.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-
-      console.log("is visible", isVisible);
+      const isVisible = rect.top + 800 < window.innerHeight && rect.bottom >= 0;
       setIsExperienceVisible(isVisible);
+    }
+
+    if (projectsSection) {
+      const rect = projectsSection.getBoundingClientRect();
+      const isVisible = rect.top + 800 < window.innerHeight && rect.bottom >= 0;
+      setIsProjectsVisible(isVisible);
     }
   };
 
@@ -25,13 +41,23 @@ function Home() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  return (
-    <>
-      {/* {showHole && <BlackHole />} */}
 
+  useEffect(() => {
+    console.log("isAboutVisible changed:", isAboutVisible);
+  }, [isAboutVisible]);
+
+  useEffect(() => {
+    console.log("isExperienceVisible changed:", isExperienceVisible);
+  }, [isExperienceVisible]);
+
+  useEffect(() => {
+    console.log("isProjectsVisible changed:", isProjectsVisible);
+  }, [isProjectsVisible]);
+  return (
+    <div className="relative">
       <div className="lg:w-4/5 grid grid-cols-1 lg:grid-cols-2 mx-auto relative">
         {/* title page */}
-        <div className="mt-10 lg:mt-24 md:mt-16 mx-4 md:mx-6 lg:mx-0 xl:ml-12 lg:fixed">
+        <div className="mt-10 lg:mt-20 md:mt-16 mx-6 lg:mx-0 xl:ml-12 lg:fixed">
           <header>
             <div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
@@ -47,35 +73,57 @@ function Home() {
               <nav aria-label="">
                 <ul className="mt-16 hidden lg:block">
                   <li className="mb-6 flex items-center">
-                    <span className="line w-8 h-0.5 bg-slate-500"></span>
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200 ml-4">
+                    <span
+                      className={`line   ${
+                        isAboutVisible
+                          ? "line-animate bg-white"
+                          : "bg-slate-500 w-8 h-0.5"
+                      }`}
+                    ></span>
+                    <span
+                      className={`nav-text text-xs font-bold uppercase tracking-widest  group-hover:text-slate-200 group-focus-visible:text-slate-200 ml-4 ${
+                        isAboutVisible ? "text-animate" : "text-slate-500"
+                      }`}
+                    >
                       About
                     </span>
                   </li>
                   <li className="mb-6 flex items-center">
                     <span
-                      className={`line w-8 h-0.5 bg-slate-500 ${
-                        isExperienceVisible ? "line-animate" : ""
+                      className={`line   ${
+                        isExperienceVisible
+                          ? "line-animate bg-white"
+                          : "bg-slate-500 w-8 h-0.5"
                       }`}
                     ></span>
                     <span
-                      className={`nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200 ml-4 ${
-                        isExperienceVisible ? "text-animate" : ""
+                      className={`nav-text text-xs font-bold uppercase tracking-widest  group-hover:text-slate-200 group-focus-visible:text-slate-200 ml-4 ${
+                        isExperienceVisible ? "text-animate" : "text-slate-500"
                       }`}
                     >
                       EXPERIENCE
                     </span>
                   </li>
                   <li className="mb-6 flex items-center">
-                    <span className="line w-8 h-0.5 bg-slate-500"></span>
-                    <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200 ml-4">
+                    <span
+                      className={`line   ${
+                        isProjectsVisible
+                          ? "line-animate bg-white"
+                          : "bg-slate-500 w-8 h-0.5"
+                      }`}
+                    ></span>
+                    <span
+                      className={`nav-text text-xs font-bold uppercase tracking-widest  group-hover:text-slate-200 group-focus-visible:text-slate-200 ml-4 ${
+                        isProjectsVisible ? "text-animate" : "text-slate-500"
+                      }`}
+                    >
                       PROJECTS
                     </span>
                   </li>
                 </ul>
               </nav>
             </div>
-            <ul className="flex mt-8 lg:mt-40 items-center">
+            <ul className="flex mt-8 lg:mt-40  items-center">
               <li className="mr-5 text-3xl shrink-0">
                 <Icon icon="mdi:github" className="text-slate-500" />
               </li>
@@ -100,9 +148,9 @@ function Home() {
           </header>
         </div>
         {/* Scroll Page */}
-        <div className="mt-10 lg:mt-24 md:mt-16 md:mx-6 mx-4 lg:ml-[500px] lg:mt-18 lg:w-full">
+        <div className="mt-10 lg:mt-20 md:mt-16 mx-6 lg:ml-[500px] lg:mt-18 lg:w-full">
           <main>
-            <section className="border-b-2 border-b-slate-500">
+            <section className="border-b-2 border-b-slate-500" ref={aboutRef}>
               <h2 className="lg:hidden my-8 font-bold text-md text-slate-200 py-6 opacity-90 sticky top-0 bg-[#050d24]">
                 About
               </h2>
@@ -135,8 +183,8 @@ function Home() {
               <h2 className="lg:hidden my-8 font-bold text-md text-slate-200 py-6 opacity-90  sticky top-0 bg-[#050d24]">
                 EXPERIENCE
               </h2>
-              <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div">
-                <header className="md:w-1/4	z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
+              <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
+                <header className="md:w-1/4	z-10 mb-2 mt-1 lg:mr-4 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
                   2024 - Present
                 </header>
                 <div className="md:w-4/5">
@@ -169,8 +217,8 @@ function Home() {
                   </ul>
                 </div>
               </div>
-              <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div">
-                <header className="md:w-1/4	z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
+              <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
+                <header className="md:w-1/4	z-10 mb-2 mt-1 lg:mr-4 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
                   2024 - Present
                 </header>
                 <div className="md:w-4/5">
@@ -203,8 +251,8 @@ function Home() {
                   </ul>
                 </div>
               </div>
-              <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div">
-                <header className="md:w-1/4	z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
+              <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
+                <header className="md:w-1/4	z-10 mb-2 mt-1 lg:mr-4 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
                   2024 - Present
                 </header>
                 <div className="md:w-4/5">
@@ -237,8 +285,8 @@ function Home() {
                   </ul>
                 </div>
               </div>
-              <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div">
-                <header className="md:w-1/4	z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
+              <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
+                <header className="md:w-1/4	z-10 mb-2 lg:mr-4 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
                   2024 - Present
                 </header>
                 <div className="md:w-4/5">
@@ -272,12 +320,12 @@ function Home() {
                 </div>
               </div>
             </section>
-            <section className="mt-28">
+            <section className="mt-28" ref={projectsRef}>
               <h2 className="lg:hidden my-8 font-bold text-md text-slate-200 py-6 opacity-90  sticky top-0 bg-[#050d24]">
                 PROJECTS
               </h2>
               <ul>
-                <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div">
+                <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div transition-all duration-300 ease-in-out">
                   <div className="flex flex-col-reverse md:flex-row lg:flex-row">
                     <img
                       src="https://media.istockphoto.com/id/1257531806/vector/anime-touch-background-illustration-of-cityscape-made-in-vector.jpg?s=170667a&w=0&k=20&c=oAxoErbybiPYSnsGdUyxWQRJt4ifQ_-wLwCe-FugDNQ="
@@ -312,7 +360,7 @@ function Home() {
                     </div>
                   </div>
                 </li>
-                <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div">
+                <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div transition-all duration-300 ease-in-out">
                   <div className="flex flex-col-reverse md:flex-row lg:flex-row">
                     <img
                       src="https://media.istockphoto.com/id/1257531806/vector/anime-touch-background-illustration-of-cityscape-made-in-vector.jpg?s=170667a&w=0&k=20&c=oAxoErbybiPYSnsGdUyxWQRJt4ifQ_-wLwCe-FugDNQ="
@@ -347,7 +395,7 @@ function Home() {
                     </div>
                   </div>
                 </li>
-                <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div">
+                <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div transition-all duration-300 ease-in-out">
                   <div className="flex flex-col-reverse md:flex-row lg:flex-row">
                     <img
                       src="https://media.istockphoto.com/id/1257531806/vector/anime-touch-background-illustration-of-cityscape-made-in-vector.jpg?s=170667a&w=0&k=20&c=oAxoErbybiPYSnsGdUyxWQRJt4ifQ_-wLwCe-FugDNQ="
@@ -384,7 +432,7 @@ function Home() {
                 </li>
               </ul>
             </section>
-            <footer className="max-w-md pb-24 lg:ml-4 text-sm lg:mb-20 text-slate-500 sm:pb-0">
+            <footer className="max-w-md pb-24 lg:ml-4 text-sm  lg:mb-20 xl:mb- 12  text-slate-500 sm:pb-0">
               <p>
                 Loosely designed in Figma and coded in Visual Studio Code by
                 yours truly. Built with Next.js and Tailwind CSS, deployed with
@@ -394,13 +442,19 @@ function Home() {
           </main>
         </div>
       </div>
-      {/* <button
-        onClick={() => setShowHole(!showHole)}
-        className="absolute right-3 bottom-8 bg-red-600"
-      >
-        click image
-      </button> */}
-    </>
+
+      <button className="absolute right-1 md:right-3 bottom-4 md:bottom-6 lg:bottom-8">
+        <img
+          width="100"
+          height="86"
+          decoding="async"
+          data-nimg="1"
+          loading="lazy"
+          alt="Spinning Tardis from Doctor Who"
+          src="https://brittanychiang.com/_next/image?url=%2Fimages%2Ftardis%2Frotate.gif&w=256&q=75"
+        />
+      </button>
+    </div>
   );
 }
 

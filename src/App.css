@@ -34,20 +34,40 @@ body {
   color: #4fd1c5;
 }
 
-/* .line-animate {
-  animation: expandLine 0.5s forwards;
-}
-
-.text-animate {
-  animation: changeBackground 0.5s forwards;
-} */
-
 .line-animate {
-  width: 28px; /* Adjust as necessary */
-  transition: width 0.3s ease-in-out;
+  width: 90px;
+  height: 2px;
+  transition: width 0.5s;
 }
 
 .text-animate {
   color: white;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.51s;
 }
+/* .line-animate {
+  animation: lineGrow 0.5s forwards;
+}
+
+.text-animate {
+  animation: textFadeIn 0.5s forwards;
+}
+
+@keyframes lineGrow {
+  from {
+    width: 8px;
+    color: slategray;
+  }
+  to {
+    width: 24px;
+    color: white;
+  }
+}
+
+@keyframes textFadeIn {
+  from {
+    color: slategray;
+  }
+  to {
+    color: white;
+  }
+} */

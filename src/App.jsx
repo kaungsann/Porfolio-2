@@ -1,5 +1,6 @@
 // import { useState } from "react";
 import "./App.css";
+// import BlackHole from "./components/BlackHoleComponent/BlackHole";
 import Home from "./pages/Home";
 
 function App() {
@@ -94,6 +95,7 @@ function App() {
       <div>
         <Home />
       </div>
+      {/* <BlackHole /> */}
     </>
   );
 }
