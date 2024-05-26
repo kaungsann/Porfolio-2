@@ -2,7 +2,6 @@
 
 #root {
   max-width: 1280px;
-  margin: 0 auto;
 }
 
 body {
@@ -10,25 +9,8 @@ body {
   color: whitesmoke;
   font-family: "M PLUS 1", sans-serif;
 }
-
-.home {
-  height: calc(100vh - 64px);
-  overflow-y: auto;
-}
-
-.home::-webkit-scrollbar {
-  width: 0px;
-}
-
-.home::-webkit-scrollbar-thumb {
-  background-color: #f9fafb;
-}
-.titleHeader {
-  position: fixed;
-  top: 0;
-  left: 38%;
-  margin-top: 88px;
-  transform: translateX(-100%);
+body::-webkit-scrollbar {
+  display: none;
 }
 .hovered-div:hover h3 {
   color: #4fd1c5;
@@ -44,30 +26,3 @@ body {
   color: white;
   transition: color 0.51s;
 }
-/* .line-animate {
-  animation: lineGrow 0.5s forwards;
-}
-
-.text-animate {
-  animation: textFadeIn 0.5s forwards;
-}
-
-@keyframes lineGrow {
-  from {
-    width: 8px;
-    color: slategray;
-  }
-  to {
-    width: 24px;
-    color: white;
-  }
-}
-
-@keyframes textFadeIn {
-  from {
-    color: slategray;
-  }
-  to {
-    color: white;
-  }
-} */

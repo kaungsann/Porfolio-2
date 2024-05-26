@@ -87,15 +87,18 @@ function App() {
       }
       `}
       </style> */}
-      <div
+      {/* <div
         id="cursor"
         // style={{ left: `${cursorX}px`, top: `${cursorY}px` }}
-      ></div>
-      <div id="cursor-border"></div>
+      ></div> */}
+      {/* <div id="cursor-border"></div> */}
       <div>
         <Home />
       </div>
-      {/* <BlackHole /> */}
+
+      {/* <div className="relative">
+        <BlackHole />
+      </div> */}
     </>
   );
 }

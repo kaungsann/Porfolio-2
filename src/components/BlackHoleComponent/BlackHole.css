@@ -1,4 +1,13 @@
-div {
+.circleBox {
+  margin-top: 300px;
+  --deg: 1;
+  --x: -50%;
+  --y: -50%;
+  --speed: 150ms;
+  background-color: antiquewhite;
+}
+
+.circle {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -16,7 +25,6 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
-
   &::after {
     font-size: 1em;
     white-space: nowrap;
@@ -53,13 +61,4 @@ div {
     filter: hue-rotate(360deg);
     transform: translate(var(--x), var(--y)) rotate(360deg);
   }
-}
-
-.mainBg {
-  z-index: 4;
-  --deg: 1;
-  --x: -50%;
-  --y: -50%;
-  --speed: 150ms;
-  background: radial-gradient(circle at 50% 35%, #334455, #000);
 }
