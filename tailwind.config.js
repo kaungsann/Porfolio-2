@@ -2,7 +2,19 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      transform: {
+        "skew-z-12": "skewZ(12deg)",
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".skew-z-12": {
+          transform: "skewZ(12deg)",
+        },
+      });
+    },
+  ],
 };

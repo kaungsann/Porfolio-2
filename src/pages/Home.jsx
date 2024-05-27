@@ -46,7 +46,7 @@ function Home() {
 
   return (
     <>
-      <div className="relativexl:ml-16">
+      <div className="relative">
         <div className=" lg:w-4/5 lg:mx-auto grid grid-cols-1 lg:grid-cols-2 relative">
           {/* title page */}
           <div className="mt-10 lg:mt-20 md:mt-16 mx-6 lg:mx-0 xl:ml-20 lg:fixed">
@@ -433,7 +433,7 @@ function Home() {
                   </li>
                 </ul>
               </section>
-              <footer className="max-w-md pb-24 lg:ml-4 text-sm  lg:mb-20 xl:mb- 12  text-slate-500 sm:pb-0">
+              <footer className="max-w-md pb-24 lg:ml-4 text-sm sm:mb-12 md:mb-16  lg:mb-20 xl:mb- 12  text-slate-500 sm:pb-0">
                 <p>
                   Loosely designed in Figma and coded in Visual Studio Code by
                   yours truly. Built with Next.js and Tailwind CSS, deployed
@@ -444,7 +444,7 @@ function Home() {
           </div>
         </div>
         <button
-          className="absolute right-1 md:right-3 bottom-4 md:bottom-6 lg:bottom-8"
+          className="lg:fixed absolute right-0 bottom-6"
           onClick={() => setShowHole(!showHole)}
         >
           <img
@@ -459,6 +459,7 @@ function Home() {
           />
         </button>
       </div>
+
       {showHole && <BlackHole removeHole={setShowHole} />}
     </>
   );

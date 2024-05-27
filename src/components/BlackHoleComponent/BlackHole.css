@@ -1,10 +1,44 @@
 .circleBox {
-  margin-top: 300px;
+  margin-top: 200px;
   --deg: 1;
   --x: -50%;
   --y: -50%;
   --speed: 150ms;
-  background-color: antiquewhite;
+}
+
+.star-wars-skew {
+  transform: rotateX(25deg) translateZ(100px);
+  transform-origin: 50% 100%;
+}
+
+.skew-box {
+  transform: skewZ(12deg);
+}
+
+.hover\:blur-sm:hover {
+  filter: blur(4px); /* Adjust the blur amount as needed */
+}
+.hover\:contrast-50:hover {
+  filter: contrast(50%);
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .circleBox {
+    margin-top: 250px;
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .circleBox {
+    margin-top: 300px;
+  }
+}
+@media (max-width: 450px) {
+  .circleBox {
+    margin-top: 350px;
+  }
 }
 
 .circle {
@@ -12,7 +46,7 @@
   top: 50%;
   left: 50%;
   transform: translate(var(--x, -50%), var(--y, -50%)) rotate(0deg);
-  font-size: 20vmin;
+  font-size: 25vmin;
   width: 3em;
   height: 3em;
   border-radius: 90% 95% 85% 105%;
