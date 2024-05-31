@@ -25,13 +25,13 @@ function Home() {
 
     if (experienceSection) {
       const rect = experienceSection.getBoundingClientRect();
-      const isVisible = rect.top + 800 < window.innerHeight && rect.bottom >= 0;
+      const isVisible = rect.top + 600 < window.innerHeight && rect.bottom >= 0;
       setIsExperienceVisible(isVisible);
     }
 
     if (projectsSection) {
       const rect = projectsSection.getBoundingClientRect();
-      const isVisible = rect.top + 800 < window.innerHeight && rect.bottom >= 0;
+      const isVisible = rect.top + 500 < window.innerHeight && rect.bottom >= 0;
       setIsProjectsVisible(isVisible);
     }
   };
@@ -47,9 +47,9 @@ function Home() {
   return (
     <>
       <div className="relative">
-        <div className=" lg:w-4/5 lg:mx-auto grid grid-cols-1 lg:grid-cols-2 relative">
+        <div className=" lg:w-4/5 xl:w-11/12 lg:mx-auto md:mx-auto bg grid grid-cols-1 lg:grid-cols-2 relative">
           {/* title page */}
-          <div className="mt-10 lg:mt-20 md:mt-16 mx-6 lg:mx-0 xl:ml-20 lg:fixed">
+          <div className="mt-10 lg:mt-20 md:mt-16 mx-6 lg:mx-0 xl:ml-40 lg:fixed lg:bottom-0  lg:top-0">
             <header>
               <div>
                 <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
@@ -58,10 +58,10 @@ function Home() {
                 <h2 className="mt-3 text-lg font-semibold tracking-tight text-slate-200 sm:text-xl">
                   Software Developer
                 </h2>
-                <p className="mt-4 max-w-xs leading-normal text-slate-400">
+                <h4 className="mt-4 max-w-xs text-md leading-normal text-slate-400 ">
                   I build pixel-perfect, engaging, and accessible digital
                   experiences.
-                </p>
+                </h4>
                 <nav aria-label="">
                   <ul className="mt-16 hidden lg:block">
                     <li className="mb-6 flex items-center">
@@ -117,7 +117,7 @@ function Home() {
                   </ul>
                 </nav>
               </div>
-              <ul className="flex mt-8 lg:mt-40  items-center">
+              <ul className="flex mt-8 lg:mt-56 items-center">
                 <li className="mr-5 text-3xl shrink-0">
                   <Icon icon="mdi:github" className="text-slate-500" />
                 </li>
@@ -127,11 +127,9 @@ function Home() {
                     className="text-slate-500"
                   />
                 </li>
-
                 <li className="mr-5 text-2xl shrink-0">
                   <Icon icon="bi:instagram" className="text-slate-500" />
                 </li>
-
                 <li className="mr-5 text-3xl shrink-0">
                   <Icon
                     icon="ic:baseline-facebook"
@@ -145,35 +143,37 @@ function Home() {
             </header>
           </div>
           {/* Scroll Page */}
-          <div className=" mt-10 lg:mt-20 md:mt-16 mx-6  bg-lime-40  md:mr-12 lg:ml-[500px] lg:mt-18 lg:w-full">
+          <div className=" mt-10 lg:mt-20 md:mt-16 mx-6  bg-lime-40  md:mr-12 lg:ml-[400px] xl:ml-[650px] lg:mt-18 lg:w-full">
             <main>
               <section className="border-b-2 border-b-slate-500" ref={aboutRef}>
                 <h2 className="lg:hidden my-8 font-bold text-md text-slate-200 py-6 opacity-90 sticky top-0 bg-[#050d24]">
                   About
                 </h2>
                 <div>
-                  <p className="text-slate-400 text-sm">
-                    Back in 2012, I decided to try my hand at creating custom
-                    Tumblr themes and tumbled head first into the rabbit hole of
-                    coding and web development. Fast-forward to today, and I’ve
-                    had the privilege of building software for an advertising
-                    agency, a start-up, a huge corporation, and a digital
-                    product studio.
+                  <p className="text-slate-400 text-md">
+                    Back in my final year as a botany student at Dagon
+                    University, I found myself captivated by the world of web
+                    development. What started as a hobby soon turned into a
+                    full-blown passion. Fast forward to today, I have
+                    transitioned from my early days in a call center to becoming
+                    a Full Stack Developer at Ambit Software, where I have been
+                    honing my skills for nearly two years.
                   </p>
-                  <p className="text-slate-400 my-4 text-sm">
-                    My main focus these days is building accessible user
-                    interfaces for our customers at Klaviyo. I most enjoy
-                    building software in the sweet spot where design and
-                    engineering meet — things that look good but are also built
-                    well under the hood. In my free time, I have also released
-                    an online video course that covers everything you need to
-                    know to build a web app with the Spotify API.
+                  <p className="text-slate-400 my-4 text-md">
+                    At Ambit Software, I have the privilege of working with a
+                    dynamic team to build production-level applications. My tech
+                    stack includes React, Node.js, MongoDB, and Express.js, with
+                    deployments managed on AWS services such as S3 and EC2.
+                    Throughout my tenure, I have successfully developed and
+                    launched two major applications that have significantly
+                    enhanced our clients operations.
                   </p>
-                  <p className="text-slate-400 text-sm">
-                    When I am not at the computer, Im usually rock climbing,
-                    reading, hanging out with my wife and two cats, or running
-                    around Hyrule searching for Korok seeds K o r o k s e e d s
-                    .
+                  <p className="text-slate-400 text-md">
+                    When I am not at the computer, Im usually playing
+                    basketball, staying active and challenging myself
+                    physically, I am always on the lookout for new technologies
+                    to master. Currently, I am learning Chinese and exploring
+                    the world of DJing, adding new dimensions to my skill set.
                   </p>
                 </div>
               </section>
@@ -181,132 +181,99 @@ function Home() {
                 <h2 className="lg:hidden my-8 font-bold text-md text-slate-200 py-6 opacity-90  sticky top-0 bg-[#050d24]">
                   EXPERIENCE
                 </h2>
-                <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
-                  <header className="md:w-1/4	z-10 mb-2 mt-1 lg:mr-4 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
-                    2024 - Present
-                  </header>
-                  <div className="md:w-4/5">
-                    <h3 className="font-medium leading-snug text-slate-200 hover:text-teal-300">
-                      React Engineer , Accessibility . Kiavyia{" "}
-                    </h3>
-                    <p className="mt-2 leading-normal text-slate-400 text-sm">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nulla, voluptatem quo dignissimos quisquam cumque pariatur
-                      eum quod accusamus suscipit itaque officiis enim
-                      doloremque id at dolorum rerum impedit minima odit
-                      adipisci magni vel natus quasi vitae facere?
-                      Exercitationem minus pariatur, quaerat temporibus, cum
-                      sequi necessitatibus quos dolorum nemo eius ut.
-                    </p>
-                    <ul className="mt-2 flex flex-wrap">
-                      {[
-                        "Javascript",
-                        "React",
-                        "Nextjs",
-                        "Tailwind css",
-                        "Next UI",
-                      ].map((skill) => (
-                        <li className="mr-1.5 mt-2" key={skill}>
-                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                            {skill}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
+
+                <a
+                  href="https://www.ambitbound.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                >
+                  <div className="group lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
+                    <header className="md:w-1/4	z-10 mb-2 mt-1 lg:mr-4 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
+                      2023 - Present
+                    </header>
+                    <div className="md:w-4/5">
+                      <div className="flex items-center group-hover:text-teal-300">
+                        <h3 className="font-medium leading-snug text-slate-200 group-hover:text-teal-300">
+                          FullStack Engineer, Accessibility.Ambit
+                        </h3>
+                        <span className=" hover:text-teal-300 leading-snug">
+                          <Icon
+                            icon="hugeicons:arrow-up-right-01"
+                            className="hover:text-teal-300 text-lg leading-snug transition-transform origin-bottom-right duration-300 ease-in-out transform group-hover:scale-110 group-hover:rotate-6 group-hover:mb-1 group-hover:ml-1.5"
+                          />
+                        </span>
+                      </div>
+
+                      <p className="mt-2 leading-normal text-slate-400 text-sm">
+                        Played a key role in building and maintaining two
+                        production-level applications with my developer team.
+                        Responsible for constructing critical components of the
+                        frontend, working closely with cross-functional teams
+                        including developers, designers, and product managers.
+                        Advocated for and implemented best practices in web
+                        accessibility, ensuring an inclusive user experience
+                        across the product.
+                      </p>
+                      <ul className="mt-2 flex flex-wrap">
+                        {[
+                          "Javascript",
+                          "React",
+                          "Nextjs",
+                          "Tailwind css",
+                          "Next UI",
+                          "Expressjs",
+                          "Mongodb",
+                          "ReactNative",
+                          "Typescript",
+                        ].map((skill) => (
+                          <li className="mr-1.5 mt-2" key={skill}>
+                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
+                              {skill}
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
-                  <header className="md:w-1/4	z-10 mb-2 mt-1 lg:mr-4 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
-                    2024 - Present
+                </a>
+
+                <div className="group lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
+                  <header className="md:w-1/4 z-10 mb-2 mt-1 lg:mr-4 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
+                    2022 - 2023
                   </header>
                   <div className="md:w-4/5">
-                    <h3 className="font-medium leading-snug text-slate-200 hover:text-teal-300">
-                      React Engineer , Accessibility . Kiavyia{" "}
-                    </h3>
+                    <div className="group-hover:text-teal-300">
+                      <h3 className="font-medium leading-snug text-slate-200 group-hover:text-teal-300">
+                        Freelance Developer - Collaboration with Senior
+                      </h3>
+                      <span className=" hover:text-teal-300 leading-snug flex">
+                        <span> Developer</span>
+                        <Icon
+                          icon="hugeicons:arrow-up-right-01"
+                          className="hover:text-teal-300 text-lg leading-snug transition-transform origin-bottom-right duration-300 ease-in-out transform group-hover:scale-110 group-hover:rotate-6 group-hover:mb-1 group-hover:ml-1.5"
+                        />
+                      </span>
+                    </div>
+
                     <p className="mt-2 leading-normal text-slate-400 text-sm">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nulla, voluptatem quo dignissimos quisquam cumque pariatur
-                      eum quod accusamus suscipit itaque officiis enim
-                      doloremque id at dolorum rerum impedit minima odit
-                      adipisci magni vel natus quasi vitae facere?
-                      Exercitationem minus pariatur, quaerat temporibus, cum
-                      sequi necessitatibus quos dolorum nemo eius ut.
+                      Worked on various freelance projects in collaboration with
+                      a senior developer, contributing to the development of
+                      several applications from the ground up. Gained valuable
+                      experience in full-stack development, project management,
+                      and client interaction. Ensured the delivery of
+                      high-quality, maintainable code, while learning and
+                      implementing industry best practices.
                     </p>
                     <ul className="mt-2 flex flex-wrap">
                       {[
                         "Javascript",
                         "React",
                         "Nextjs",
-                        "Tailwind css",
-                        "Next UI",
-                      ].map((skill) => (
-                        <li className="mr-1.5 mt-2" key={skill}>
-                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                            {skill}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
-                  <header className="md:w-1/4	z-10 mb-2 mt-1 lg:mr-4 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
-                    2024 - Present
-                  </header>
-                  <div className="md:w-4/5">
-                    <h3 className="font-medium leading-snug text-slate-200 hover:text-teal-300">
-                      React Engineer , Accessibility . Kiavyia{" "}
-                    </h3>
-                    <p className="mt-2 leading-normal text-slate-400 text-sm">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nulla, voluptatem quo dignissimos quisquam cumque pariatur
-                      eum quod accusamus suscipit itaque officiis enim
-                      doloremque id at dolorum rerum impedit minima odit
-                      adipisci magni vel natus quasi vitae facere?
-                      Exercitationem minus pariatur, quaerat temporibus, cum
-                      sequi necessitatibus quos dolorum nemo eius ut.
-                    </p>
-                    <ul className="mt-2 flex flex-wrap">
-                      {[
-                        "Javascript",
-                        "React",
-                        "Nextjs",
-                        "Tailwind css",
-                        "Next UI",
-                      ].map((skill) => (
-                        <li className="mr-1.5 mt-2" key={skill}>
-                          <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                            {skill}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <div className="lg:p-4 md:flex md:justify-between lg:hover:bg-gray-900 hover:rounded-lg mb-12 cursor-pointer hovered-div transition-all duration-300 ease-in-out">
-                  <header className="md:w-1/4	z-10 mb-2 lg:mr-4 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
-                    2024 - Present
-                  </header>
-                  <div className="md:w-4/5">
-                    <h3 className="font-medium leading-snug text-slate-200 hover:text-teal-300">
-                      React Engineer , Accessibility . Kiavyia{" "}
-                    </h3>
-                    <p className="mt-2 leading-normal text-slate-400 text-sm">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nulla, voluptatem quo dignissimos quisquam cumque pariatur
-                      eum quod accusamus suscipit itaque officiis enim
-                      doloremque id at dolorum rerum impedit minima odit
-                      adipisci magni vel natus quasi vitae facere?
-                      Exercitationem minus pariatur, quaerat temporibus, cum
-                      sequi necessitatibus quos dolorum nemo eius ut.
-                    </p>
-                    <ul className="mt-2 flex flex-wrap">
-                      {[
-                        "Javascript",
-                        "React",
-                        "Nextjs",
-                        "Tailwind css",
-                        "Next UI",
+                        "Tailwind CSS",
+                        "Node.js",
+                        "Express.js",
+                        "MongoDB",
                       ].map((skill) => (
                         <li className="mr-1.5 mt-2" key={skill}>
                           <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
@@ -454,7 +421,6 @@ function Home() {
             data-nimg="1"
             loading="lazy"
             alt="Spinning Tardis from Doctor Who"
-            // src={roundImg}
             src="https://brittanychiang.com/_next/image?url=%2Fimages%2Ftardis%2Frotate.gif&w=256&q=75"
           />
         </button>
