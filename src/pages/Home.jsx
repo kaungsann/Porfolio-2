@@ -1,8 +1,15 @@
 import { Icon } from "@iconify/react";
 import { useEffect, useRef, useState } from "react";
 import BlackHole from "../components/BlackHoleComponent/BlackHole";
+import edp from "../assets/images/edp.png";
+import edpImg from "../assets/images/edpmpt.png";
+import pos from "../assets/images/possystem.png";
+import twopos from "../assets/images/pos2.png";
+import ambit from "../assets/images/ambitbound.png";
 
 function Home() {
+  const [imageSrc, setImageSrc] = useState(pos);
+  const [edpImageSrc, setEdpImageSrc] = useState(pos);
   const [showHole, setShowHole] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isExperienceVisible, setIsExperienceVisible] = useState(false);
@@ -117,7 +124,7 @@ function Home() {
                   </ul>
                 </nav>
               </div>
-              <ul className="flex mt-8 lg:mt-56 items-center">
+              <ul className="flex mt-8 lg:mt-60 items-center">
                 <li className="mr-5 text-3xl shrink-0">
                   <Icon icon="mdi:github" className="text-slate-500" />
                 </li>
@@ -143,9 +150,9 @@ function Home() {
             </header>
           </div>
           {/* Scroll Page */}
-          <div className=" mt-10 lg:mt-20 md:mt-16 mx-6  bg-lime-40  md:mr-12 lg:ml-[400px] xl:ml-[650px] lg:mt-18 lg:w-full">
+          <div className=" mt-10 lg:mt-20 md:mt-16 mx-6  bg-lime-40  md:mr-12 lg:mr-28 lg:ml-[400px] xl:ml-[650px] lg:mt-18 lg:w-full">
             <main>
-              <section className="border-b-2 border-b-slate-500" ref={aboutRef}>
+              <section className="border-b-slate-500" ref={aboutRef}>
                 <h2 className="lg:hidden my-8 font-bold text-md text-slate-200 py-6 opacity-90 sticky top-0 bg-[#050d24]">
                   About
                 </h2>
@@ -193,15 +200,16 @@ function Home() {
                       2023 - Present
                     </header>
                     <div className="md:w-4/5">
-                      <div className="flex items-center group-hover:text-teal-300">
-                        <h3 className="font-medium leading-snug text-slate-200 group-hover:text-teal-300">
-                          FullStack Engineer, Accessibility.Ambit
-                        </h3>
-                        <span className=" hover:text-teal-300 leading-snug">
-                          <Icon
-                            icon="hugeicons:arrow-up-right-01"
-                            className="hover:text-teal-300 text-lg leading-snug transition-transform origin-bottom-right duration-300 ease-in-out transform group-hover:scale-110 group-hover:rotate-6 group-hover:mb-1 group-hover:ml-1.5"
-                          />
+                      <div className=" group-hover:text-teal-300 relative">
+                        <span className="inline-block">
+                          FullStack Engineer, Accessibility.
+                          <span className="inline-block">Ambit</span>
+                          <span className="inline-block">
+                            <Icon
+                              icon="hugeicons:arrow-up-right-01"
+                              className="shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                            />
+                          </span>
                         </span>
                       </div>
 
@@ -242,17 +250,18 @@ function Home() {
                   <header className="md:w-1/4 z-10 mb-2 mt-1 lg:mr-4 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
                     2022 - 2023
                   </header>
+
                   <div className="md:w-4/5">
-                    <div className="group-hover:text-teal-300">
-                      <h3 className="font-medium leading-snug text-slate-200 group-hover:text-teal-300">
-                        Freelance Developer - Collaboration with Senior
-                      </h3>
-                      <span className=" hover:text-teal-300 leading-snug flex">
-                        <span> Developer</span>
-                        <Icon
-                          icon="hugeicons:arrow-up-right-01"
-                          className="hover:text-teal-300 text-lg leading-snug transition-transform origin-bottom-right duration-300 ease-in-out transform group-hover:scale-110 group-hover:rotate-6 group-hover:mb-1 group-hover:ml-1.5"
-                        />
+                    <div className=" group-hover:text-teal-300 relative">
+                      <span className="inline-block">
+                        Freelance Developer - Collaboration with
+                        <span className="inline-block"> Senior Developer</span>
+                        <span className="inline-block">
+                          <Icon
+                            icon="hugeicons:arrow-up-right-01"
+                            className="shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                          />
+                        </span>
                       </span>
                     </div>
 
@@ -290,22 +299,87 @@ function Home() {
                   PROJECTS
                 </h2>
                 <ul>
-                  <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div transition-all duration-300 ease-in-out">
+                  <li
+                    onMouseEnter={() => setImageSrc(twopos)}
+                    onMouseLeave={() => setImageSrc(pos)}
+                    className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div transition-all duration-300 ease-in-out"
+                  >
                     <div className="flex flex-col-reverse md:flex-row lg:flex-row">
                       <img
-                        src="https://media.istockphoto.com/id/1257531806/vector/anime-touch-background-illustration-of-cityscape-made-in-vector.jpg?s=170667a&w=0&k=20&c=oAxoErbybiPYSnsGdUyxWQRJt4ifQ_-wLwCe-FugDNQ="
+                        src={imageSrc}
                         alt="img-pj"
                         className="sm:w-48 sm:h-28 lg:w-32 lg:h-16 mt-8 md:mt-0 lg:mt-0 rounded-md shadow-md"
                       />
                       <div className="md:ml-6">
                         <h3 className="font-medium leading-snug text-slate-200">
-                          MM NEWS (BLOG WEBSITE)
+                          POS SYSTEM
                         </h3>
                         <p className="mt-2 leading-normal text-slate-400 text-sm">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Praesentium eos corrupti illo sit eum error
-                          temporibus nemo reprehenderit aliquam. Aut molestias
-                          facere harum
+                          This POS system has many features of a large
+                          application, such as viewing sale and purchase history
+                          with charts and applying discounts to individual
+                          items. It includes warehouse management where products
+                          can be stored in different warehouses, and after
+                          purchase, they are allocated accordingly. The system
+                          supports unit of measurement (UOM) management, e.g.,
+                          selling items packaged in units of 12 pieces. After
+                          sales and purchases, you can view comprehensive
+                          history with charts and numbers, filter by year,
+                          month, and overall performance. The app has roles for
+                          admins and users; admins can create sale user accounts
+                          restricted to sales only. Additionally, the app
+                          includes an accounting module to monitor Gross Sales,
+                          Opex, waste, discounts, Fixed Costs, variable costs,
+                          and Purchase Costs, with reports filterable by month
+                          and year.
+                        </p>
+                        <ul className="mt-2 flex flex-wrap">
+                          {[
+                            "React",
+                            "Tailwind css",
+                            "Nodejs",
+                            "Expressjs",
+                            "Mongodb",
+                            "Next UI",
+                          ].map((tech) => (
+                            <li className="mr-1.5 mt-2" key={tech}>
+                              <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
+                                {tech}
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    onMouseEnter={() => setEdpImageSrc(edpImg)}
+                    onMouseLeave={() => setEdpImageSrc(edp)}
+                    className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div transition-all duration-300 ease-in-out"
+                  >
+                    <div className="flex flex-col-reverse md:flex-row lg:flex-row">
+                      <img
+                        src={edpImageSrc}
+                        alt="img-pj"
+                        className="sm:w-48 sm:h-28 lg:w-32 lg:h-16 mt-8 md:mt-0 lg:mt-0 rounded-md shadow-md"
+                      />
+                      <div className="md:ml-6">
+                        <h3 className="font-medium leading-snug text-slate-200">
+                          MPT Task Managment System
+                        </h3>
+                        <p className="mt-2 leading-normal text-slate-400 text-sm">
+                          This project is designed to facilitate communication
+                          between site engineers and the company for managing
+                          tasks. For example, an admin can assign tasks to a
+                          site engineer, such as installing or repairing WiFi
+                          machines at a customers home. The engineer will go
+                          onsite, complete the installation or repair, connect
+                          to the main tower, take a photo, and upload the photo
+                          along with other required information using a mobile
+                          application. Once the task is completed, the admin
+                          reviews the submitted photo and details via a web
+                          panel. If everything is correct, a PDF report is
+                          generated and sent to the MPT telecom center.
                         </p>
                         <ul className="mt-2 flex flex-wrap">
                           {[
@@ -329,29 +403,28 @@ function Home() {
                   <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div transition-all duration-300 ease-in-out">
                     <div className="flex flex-col-reverse md:flex-row lg:flex-row">
                       <img
-                        src="https://media.istockphoto.com/id/1257531806/vector/anime-touch-background-illustration-of-cityscape-made-in-vector.jpg?s=170667a&w=0&k=20&c=oAxoErbybiPYSnsGdUyxWQRJt4ifQ_-wLwCe-FugDNQ="
+                        src={ambit}
                         alt="img-pj"
                         className="sm:w-48 sm:h-28 lg:w-32 lg:h-16 mt-8 md:mt-0 lg:mt-0 rounded-md shadow-md"
                       />
                       <div className="md:ml-6">
                         <h3 className="font-medium leading-snug text-slate-200">
-                          MM NEWS (BLOG WEBSITE)
+                          AmbitBound Technologies ( WEBSITE )
                         </h3>
                         <p className="mt-2 leading-normal text-slate-400 text-sm">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Praesentium eos corrupti illo sit eum error
-                          temporibus nemo reprehenderit aliquam. Aut molestias
-                          facere harum
+                          This website was created using Next.js to showcase our
+                          business offerings, including mobile application and
+                          web application development, website services,
+                          e-commerce solutions, business transformation, and
+                          consulting. The website features a contact form for
+                          customers to reach out and a job vacancy section where
+                          developers and other professionals can apply for
+                          positions. Additionally, the website supports two
+                          languages, Myanmar and English, providing
+                          accessibility for a broader audience.
                         </p>
                         <ul className="mt-2 flex flex-wrap">
-                          {[
-                            "React",
-                            "Tailwind css",
-                            "Nodejs",
-                            "Expressjs",
-                            "Mongodb",
-                            "Next UI",
-                          ].map((tech) => (
+                          {["Nextjs", "Next UI"].map((tech) => (
                             <li className="mr-1.5 mt-2" key={tech}>
                               <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
                                 {tech}
@@ -362,6 +435,7 @@ function Home() {
                       </div>
                     </div>
                   </li>
+                  {/* 
                   <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div transition-all duration-300 ease-in-out">
                     <div className="flex flex-col-reverse md:flex-row lg:flex-row">
                       <img
@@ -371,13 +445,17 @@ function Home() {
                       />
                       <div className="md:ml-6">
                         <h3 className="font-medium leading-snug text-slate-200">
-                          MM NEWS (BLOG WEBSITE)
+                          MM NEWS ( BLOG SITE )
                         </h3>
                         <p className="mt-2 leading-normal text-slate-400 text-sm">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Praesentium eos corrupti illo sit eum error
-                          temporibus nemo reprehenderit aliquam. Aut molestias
-                          facere harum
+                          This website was created using Next.js to showcase our
+                          business offerings, including mobile application and
+                          web application development, website services,
+                          e-commerce solutions, business transformation, and
+                          consulting. The website features a contact form for
+                          customers to reach out and a job vacancy section where
+                          developers and other professionals can apply for
+                          positions.
                         </p>
                         <ul className="mt-2 flex flex-wrap">
                           {[
@@ -386,7 +464,6 @@ function Home() {
                             "Nodejs",
                             "Expressjs",
                             "Mongodb",
-                            "Next UI",
                           ].map((tech) => (
                             <li className="mr-1.5 mt-2" key={tech}>
                               <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
@@ -397,7 +474,7 @@ function Home() {
                         </ul>
                       </div>
                     </div>
-                  </li>
+                  </li> */}
                 </ul>
               </section>
               <footer className="max-w-md pb-24 lg:ml-4 text-sm sm:mb-12 md:mb-16  lg:mb-20 xl:mb- 12  text-slate-500 sm:pb-0">
