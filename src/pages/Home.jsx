@@ -6,6 +6,7 @@ import edpImg from "../assets/images/edpmpt.png";
 import pos from "../assets/images/possystem.png";
 import twopos from "../assets/images/pos2.png";
 import ambit from "../assets/images/ambitbound.png";
+import trade from "../assets/images/trade1.png";
 
 function Home() {
   const [imageSrc, setImageSrc] = useState(pos);
@@ -336,6 +337,7 @@ function Home() {
                         <ul className="mt-2 flex flex-wrap">
                           {[
                             "React",
+                            "Redux",
                             "Tailwind css",
                             "Nodejs",
                             "Expressjs",
@@ -384,6 +386,8 @@ function Home() {
                         <ul className="mt-2 flex flex-wrap">
                           {[
                             "React",
+                            "Redux Toolkit",
+                            "RTk Query",
                             "Tailwind css",
                             "Nodejs",
                             "Expressjs",
@@ -435,36 +439,35 @@ function Home() {
                       </div>
                     </div>
                   </li>
-                  {/* 
+
                   <li className="lg:px-4 lg:py-6 lg:mt-16 mb-12 cursor-pointer lg:hover:bg-gray-900 hover:rounded-lg hovered-div transition-all duration-300 ease-in-out">
                     <div className="flex flex-col-reverse md:flex-row lg:flex-row">
                       <img
-                        src="https://media.istockphoto.com/id/1257531806/vector/anime-touch-background-illustration-of-cityscape-made-in-vector.jpg?s=170667a&w=0&k=20&c=oAxoErbybiPYSnsGdUyxWQRJt4ifQ_-wLwCe-FugDNQ="
+                        src={trade}
                         alt="img-pj"
                         className="sm:w-48 sm:h-28 lg:w-32 lg:h-16 mt-8 md:mt-0 lg:mt-0 rounded-md shadow-md"
                       />
                       <div className="md:ml-6">
                         <h3 className="font-medium leading-snug text-slate-200">
-                          MM NEWS ( BLOG SITE )
+                          Trading App - Backend(Freelance Project)
                         </h3>
                         <p className="mt-2 leading-normal text-slate-400 text-sm">
-                          This website was created using Next.js to showcase our
-                          business offerings, including mobile application and
-                          web application development, website services,
-                          e-commerce solutions, business transformation, and
-                          consulting. The website features a contact form for
-                          customers to reach out and a job vacancy section where
-                          developers and other professionals can apply for
-                          positions.
+                          This trading app includes both admin and user
+                          functionalities. After registration, they log in using
+                          their credentials.Users further register their bank
+                          details (e.g., AYE, KBZ) and NRC card. Admins can
+                          verify these details; if incorrect, the users account
+                          is rejected. The app supports deposits and
+                          withdrawals, where users can add currency (e.g., USDT,
+                          EOS, BCH, LTC, XRP, ETC) by paying from their bank to
+                          the admins account. Admins verify transactions and
+                          update the users balance. Users can also trade coins
+                          and view their transaction history. Admins manage
+                          currency rates and handle user requests via various
+                          APIs.
                         </p>
                         <ul className="mt-2 flex flex-wrap">
-                          {[
-                            "React",
-                            "Tailwind css",
-                            "Nodejs",
-                            "Expressjs",
-                            "Mongodb",
-                          ].map((tech) => (
+                          {["Nodejs", "Expressjs", "Mongodb"].map((tech) => (
                             <li className="mr-1.5 mt-2" key={tech}>
                               <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
                                 {tech}
@@ -474,7 +477,7 @@ function Home() {
                         </ul>
                       </div>
                     </div>
-                  </li> */}
+                  </li>
                 </ul>
               </section>
               <footer className="max-w-md pb-24 lg:ml-4 text-sm sm:mb-12 md:mb-16  lg:mb-20 xl:mb- 12  text-slate-500 sm:pb-0">
